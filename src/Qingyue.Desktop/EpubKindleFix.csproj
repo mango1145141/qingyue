@@ -16,7 +16,7 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <ApplicationIcon>Assets\KindleIcon.ico</ApplicationIcon>
-    <Version>2.1.4</Version>
+    <Version>2.1.5</Version>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="Assets\KindleIcon.png" />

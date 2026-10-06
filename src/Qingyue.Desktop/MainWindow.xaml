@@ -124,12 +124,13 @@
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="&#xE8F1;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Foreground="{DynamicResource Accent}" FontSize="16" VerticalAlignment="Center" Margin="0,0,8,0"/>
-                                    <Button Content="我的书籍  ↗" Style="{StaticResource QuietButton}" FontSize="15" FontWeight="Medium" Foreground="{DynamicResource Accent}" Padding="0,2" Click="Bookshelf_Click"/>
+                                    <Button Content="我的书架  ↗" Style="{StaticResource QuietButton}" FontSize="15" FontWeight="Medium" Foreground="{DynamicResource Accent}" Padding="0,2" Click="Bookshelf_Click"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                    <Button x:Name="QueueButton" Content="发送队列" Style="{StaticResource QuietButton}" FontSize="10.5" Padding="8,4" Margin="0,0,12,0" Click="Queue_Click"/>
                                     <Ellipse x:Name="ConnectionDot" Width="5" Height="5" Fill="#C7C7CC" Margin="0,0,7,0"/>
-                                    <TextBlock x:Name="ConnectionBadge" Text="邮箱待连接" FontSize="10" Foreground="{DynamicResource Muted}"/>
+                                    <TextBlock x:Name="ConnectionBadge" Text="邮箱待连接" FontSize="11" Foreground="{DynamicResource Muted}" VerticalAlignment="Center"/>
+                                    <Border Width="1" Height="18" Background="{DynamicResource Line}" Margin="16,0"/>
+                                    <Button x:Name="QueueButton" Content="发送队列" Style="{StaticResource SecondaryButton}" FontSize="13" Padding="14,8" Click="Queue_Click" ToolTip="查看发送进度、暂停与重试"/>
                                 </StackPanel>
                             </Grid>
                         </Border>

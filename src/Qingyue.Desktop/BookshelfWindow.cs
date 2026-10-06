@@ -17,19 +17,26 @@ public sealed class BookshelfWindow : Window
     private readonly Func<LibraryBook, Task> retry;
     private readonly Action<DiscoveryBook> search;
     private readonly Action profileChanged;
-    private int tab;
+    private readonly int view;
     private int refreshRevision;
-    public BookshelfWindow(PersonalLibrary library, ReadingProfile profile, int tab, Func<LibraryBook, Task> retry,
+    public BookshelfWindow(PersonalLibrary library, ReadingProfile profile, int view, Func<LibraryBook, Task> retry,
         Action<DiscoveryBook> search, Action profileChanged)
     {
-        this.library = library; this.profile = profile; this.retry = retry; this.search = search; this.profileChanged = profileChanged; this.tab = tab;
+        this.library = library; this.profile = profile; this.retry = retry; this.search = search; this.profileChanged = profileChanged; this.view = view;
         Title = "轻阅 · 我的书架"; Width = 870; Height = 730; MinWidth = 700; MinHeight = 530;
         ShowInTaskbar = false; WindowStartupLocation = WindowStartupLocation.CenterOwner; SetResourceReference(BackgroundProperty,"Canvas");
         var root = new Grid { Margin = new Thickness(28) };
         root.RowDefinitions.Add(new() { Height = GridLength.Auto }); root.RowDefinitions.Add(new() { Height = GridLength.Auto });
         root.RowDefinitions.Add(new()); root.RowDefinitions.Add(new() { Height = GridLength.Auto }); Content = root;
-        var tabs = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0,0,0,20) };
-        for (var i = 0; i < 3; i++) { var index = i; tabs.Children.Add(Button(new[] { "我的书架", "想读清单", "发送队列" }[i], () => { this.tab = index; Refresh(); }, true)); } root.Children.Add(tabs);
+        var header = new StackPanel { Margin = new Thickness(0,0,0,22) };
+        var heading = new TextBlock { Text = new[] { "我的书架", "想读清单", "发送队列" }[view], FontSize = 25, FontWeight = FontWeights.SemiBold };
+        heading.SetResourceReference(TextBlock.ForegroundProperty,"Ink"); header.Children.Add(heading);
+        var description = new TextBlock { Text = new[] {
+            "整理已导入的书籍，预览内容与修复记录。",
+            "保存感兴趣的书籍与漫画，挑选下一本想读。",
+            "查看检查与发送进度，处理暂停、重试和待确认任务。"
+        }[view], FontSize = 12, Margin = new Thickness(0,9,0,0), TextWrapping = TextWrapping.Wrap };
+        description.SetResourceReference(TextBlock.ForegroundProperty,"Muted"); header.Children.Add(description); root.Children.Add(header);
         var tools = new DockPanel { Margin = new Thickness(0,0,0,16) }; Grid.SetRow(tools,1); root.Children.Add(tools);
         pause = Button("暂停队列", () => { library.Paused = !library.Paused; library.Save(); }); pause.HorizontalAlignment = HorizontalAlignment.Right;
         DockPanel.SetDock(pause,Dock.Right); tools.Children.Add(pause); DockPanel.SetDock(filter,Dock.Right); tools.Children.Add(filter); tools.Children.Add(query);
@@ -46,15 +53,15 @@ public sealed class BookshelfWindow : Window
     }
     private void Refresh()
     {
-        Title = "轻阅 · " + new[] { "我的书架", "想读清单", "发送队列" }[tab];
+        Title = "轻阅 · " + new[] { "我的书架", "想读清单", "发送队列" }[view];
         var selected = filter.SelectedItem as string;
-        filter.ItemsSource = tab == 0 ? new[] { "全部", "收藏" }.Concat(library.Books.Select(b => b.Category).Distinct()).ToArray()
-            : tab == 2 ? new[] { "未完成", "全部", "失败", "邮件已提交", "网页已提交" } : new[] { "全部" };
+        filter.ItemsSource = view == 0 ? new[] { "全部", "收藏" }.Concat(library.Books.Select(b => b.Category).Distinct()).ToArray()
+            : view == 2 ? new[] { "未完成", "全部", "失败", "邮件已提交", "网页已提交" } : new[] { "全部" };
         filter.SelectedItem = selected; if (filter.SelectedIndex < 0) filter.SelectedIndex = 0;
-        pause.Visibility = tab == 2 ? Visibility.Visible : Visibility.Collapsed;
+        pause.Visibility = view == 2 ? Visibility.Visible : Visibility.Collapsed;
+        filter.Visibility = view == 1 ? Visibility.Collapsed : Visibility.Visible;
         query.Text = ""; RefreshList();
     }
-    public void ShowTab(int tab) { this.tab = tab; Refresh(); }
     public void RefreshBooks() => RefreshList();
     private void RefreshList()
     {
@@ -64,7 +71,7 @@ public sealed class BookshelfWindow : Window
         var offset = FindScroll(list)?.VerticalOffset ?? 0;
         list.Items.Clear(); pause.Content = library.Paused ? "继续队列" : "暂停队列";
         var q = query.Text.Trim(); var f = filter.SelectedItem as string ?? "全部";
-        if (tab == 1)
+        if (view == 1)
         {
             foreach (var wish in profile.WantToRead.Where(b => (b.Title + b.Author + b.GenreLabel).Contains(q,StringComparison.OrdinalIgnoreCase)))
             {
@@ -80,14 +87,14 @@ public sealed class BookshelfWindow : Window
         else
         {
             var books = library.Books.Where(b => (b.Title + b.Author + b.Category).Contains(q,StringComparison.OrdinalIgnoreCase));
-            books = books.Where(b => tab == 0 ? f == "全部" || f == "收藏" && b.Favorite || b.Category == f
+            books = books.Where(b => view == 0 ? f == "全部" || f == "收藏" && b.Favorite || b.Category == f
                 : f == "全部" || f == "未完成" && b.State is not ("邮件已提交" or "网页已提交" or "已跳过") || f == "失败" && b.State.Contains("失败") || f == b.State);
             foreach (var book in books)
             {
                 var image = new Image { Width = 64, Height = 96, Margin = new Thickness(0,0,18,0), Source = File.Exists(book.CoverPath) ? BookPreviewWindow.ReadImage(book.CoverPath) : null };
                 var actions = new WrapPanel();
                 actions.Children.Add(Button("预览", () => new BookPreviewWindow(book) { Owner = this }.ShowDialog()));
-                if (tab == 0)
+                if (view == 0)
                 {
                     actions.Children.Add(Button(book.Favorite ? "★ 已收藏" : "☆ 收藏", () => { book.Favorite = !book.Favorite; library.Save(); },true));
                     var category = new TextBox { Text = book.Category, Width = 92, Padding = new Thickness(6), FontSize = 11, Margin = new Thickness(0,0,8,0), MaxLength = 30, ToolTip = "填写分类，再点保存" };
@@ -100,15 +107,15 @@ public sealed class BookshelfWindow : Window
                     _ = retry(book);
                 });
                 action.IsEnabled = book.State is not ("发送中" or "检查中"); actions.Children.Add(action);
-                if (tab == 2 && book.State is not ("发送中" or "检查中" or "邮件已提交" or "网页已提交" or "已跳过"))
+                if (view == 2 && book.State is not ("发送中" or "检查中" or "邮件已提交" or "网页已提交" or "已跳过"))
                     actions.Children.Add(Button("跳过", () => { book.RetryAt = null; library.Update(book,"已跳过"); },true));
-                list.Items.Add(Row(image,book.Title,book.Author + " · " + book.Category + " · " + book.State,book.Detail,actions,tab == 2 ? book.Progress : null));
+                list.Items.Add(Row(image,book.Title,book.Author + " · " + book.Category + " · " + book.State,book.Detail,actions,view == 2 ? book.Progress : null));
             }
             var remaining = library.Books.Count(b => b.State is not ("邮件已提交" or "网页已提交" or "已跳过"));
-            hint.Text = tab == 0 ? $"共 {library.Books.Count} 本 · 书架、封面和修复记录保存在 G:\\chatgpt\\轻阅数据\\书架"
+            hint.Text = view == 0 ? $"共 {library.Books.Count} 本 · 书架、封面和修复记录保存在 G:\\chatgpt\\轻阅数据\\书架"
                 : $"{remaining} 本未完成 · 邮件连接失败最多自动重试 3 次；网页结果不确定时请先确认，可单本继续。暂停会在当前任务结束后生效。";
         }
-        if (list.Items.Count == 0) list.Items.Add(new TextBlock { Text = tab == 1 ? "还没有想读的书，去推荐区收藏一本吧。" : "这里还没有书籍，选入 EPUB 后就会出现。", Margin = new Thickness(20), FontSize = 14 });
+        if (list.Items.Count == 0) list.Items.Add(new TextBlock { Text = view == 1 ? "还没有想读的书，去推荐区收藏一本吧。" : view == 2 ? "当前筛选下没有发送任务。" : "这里还没有书籍，选入 EPUB 后就会出现。", Margin = new Thickness(20), FontSize = 14 });
         Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Loaded,new Action(() => { if (viewRevision == refreshRevision) FindScroll(list)?.ScrollToVerticalOffset(offset); }));
     }
     private FrameworkElement Row(Image image, string title, string author, string detail, Panel actions, int? progress = null)

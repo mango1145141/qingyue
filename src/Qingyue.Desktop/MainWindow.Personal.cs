@@ -17,20 +17,27 @@ public partial class MainWindow
         catch { /* Import remains available for repair even if optional metadata cannot be read. */ }
         finally { metadataTasks.Remove(book.Id); }
     }
-    private BookshelfWindow? bookshelfWindow;
+    private readonly Dictionary<int, BookshelfWindow> libraryWindows = new();
     private void Bookshelf_Click(object sender, RoutedEventArgs e) => OpenBookshelf(0);
     private void WishList_Click(object sender, RoutedEventArgs e) => OpenBookshelf(1);
     private void Queue_Click(object sender, RoutedEventArgs e) => OpenBookshelf(2);
-    private void OpenBookshelf(int tab)
+    private void OpenBookshelf(int view)
     {
-        if (bookshelfWindow is not null) { bookshelfWindow.ShowTab(tab); bookshelfWindow.Activate(); return; }
-        bookshelfWindow = new BookshelfWindow(bookshelf, readingProfile, tab, RetryBookAsync,
-            async book =>
-            {
-                await SearchDiscoveryBookAsync(book);
-            }, () => { recommendationPage = 0; RefreshReadingRecommendations(); }) { Owner = this };
-        bookshelfWindow.Closed += (_, _) => bookshelfWindow = null;
-        bookshelfWindow.Show();
+        if (libraryWindows.TryGetValue(view, out var existing))
+        {
+            if (existing.WindowState == WindowState.Minimized) existing.WindowState = WindowState.Normal;
+            existing.Activate(); return;
+        }
+        var window = new BookshelfWindow(bookshelf, readingProfile, view, RetryBookAsync,
+            async book => await SearchDiscoveryBookAsync(book),
+            () => { recommendationPage = 0; RefreshReadingRecommendations(); RefreshLibraryWindows(); }) { Owner = this };
+        libraryWindows.Add(view, window);
+        window.Closed += (_, _) => libraryWindows.Remove(view);
+        window.Show();
+    }
+    private void RefreshLibraryWindows()
+    {
+        foreach (var window in libraryWindows.Values.ToArray()) window.RefreshBooks();
     }
     private void WantToRead_Click(object sender, RoutedEventArgs e)
     {
@@ -49,7 +56,7 @@ public partial class MainWindow
         }
         card.SetWanted(removed is null);
         ShowWishFeedback(removed is not null ? "已从想读中移除" : "已加入想读清单");
-        bookshelfWindow?.RefreshBooks();
+        RefreshLibraryWindows();
     }
     private readonly System.Windows.Threading.DispatcherTimer wishFeedbackTimer = new() { Interval = TimeSpan.FromSeconds(3) };
     private void ShowWishFeedback(string message)
