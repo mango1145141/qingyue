@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>轻阅</AssemblyName>
+    <Product>轻阅</Product>
+    <Title>轻阅</Title>
+    <Description>轻阅 · Kindle 书籍检查、修复与发送</Description>
+    <RootNamespace>EpubKindleFix</RootNamespace>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <ApplicationIcon>Assets\KindleIcon.ico</ApplicationIcon>
+    <Version>2.1.4</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\KindleIcon.png" />
+    <Resource Include="Assets\BookCovers.json" />
+    <Resource Include="Assets\Covers\*.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="MailKit" Version="4.18.1" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4258.31" />
+  </ItemGroup>
+</Project>

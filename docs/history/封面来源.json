@@ -1,0 +1,388 @@
+{
+    "value":  [
+                  {
+                      "id":  "fantasy-alice",
+                      "title":  "Alice\u0027s Adventures in Wonderland",
+                      "authors":  [
+                                      "Lewis Carroll"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL138052W",
+                      "coverId":  10527843
+                  },
+                  {
+                      "id":  "fantasy-earthsea",
+                      "title":  "A Wizard of Earthsea",
+                      "authors":  [
+                                      "Ursula K. Le Guin"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL59798W",
+                      "coverId":  13617691
+                  },
+                  {
+                      "id":  "fantasy-hobbit",
+                      "title":  "The Hobbit",
+                      "authors":  [
+                                      "J.R.R. Tolkien"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL27482W",
+                      "coverId":  14627509
+                  },
+                  {
+                      "id":  "fantasy-rings",
+                      "title":  "The Lord of the Rings",
+                      "authors":  [
+                                      "J.R.R. Tolkien"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL27448W",
+                      "coverId":  14625765
+                  },
+                  {
+                      "id":  "growth-atomic",
+                      "title":  "Atomic Habits",
+                      "authors":  [
+                                      "James Clear"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL17930368W",
+                      "coverId":  12539702
+                  },
+                  {
+                      "id":  "growth-deep",
+                      "title":  "Deep Work",
+                      "authors":  [
+                                      "Cal Newport"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL17713267W",
+                      "coverId":  7988607
+                  },
+                  {
+                      "id":  "growth-franklin",
+                      "title":  "The Autobiography of Benjamin Franklin",
+                      "authors":  [
+                                      "Benjamin Franklin"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL26492W",
+                      "coverId":  5647361
+                  },
+                  {
+                      "id":  "growth-james",
+                      "title":  "The principles of psychology",
+                      "authors":  [
+                                      "William James"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL1502064W",
+                      "coverId":  5815742
+                  },
+                  {
+                      "id":  "history-herodotus",
+                      "title":  "The histories of Herodotus",
+                      "authors":  [
+                                      "Herodotus"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL15678067W",
+                      "coverId":  6909537
+                  },
+                  {
+                      "id":  "history-shiji",
+                      "title":  "Shi ji",
+                      "authors":  [
+                                      "Sima Qian"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL3482612W",
+                      "coverId":  144072
+                  },
+                  {
+                      "id":  "history-three",
+                      "title":  "San guo zhi",
+                      "authors":  [
+                                      "Shou Chʻen",
+                                      "Pei song zhi",
+                                      "Wu zhuan"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL20074319W",
+                      "coverId":  8748775
+                  },
+                  {
+                      "id":  "history-thucydides",
+                      "title":  "The history of the Peloponnesian war, translated from the Greek of Thucydides. ... By William Smith, ..",
+                      "authors":  [
+                                      "Thucydides",
+                                      "John J. Owen",
+                                      "Thucidides"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL762888W",
+                      "coverId":  4909161
+                  },
+                  {
+                      "id":  "lit-call",
+                      "title":  "Call To Arms",
+                      "authors":  [
+                                      "Lu Xun"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL8599401W",
+                      "coverId":  1045818
+                  },
+                  {
+                      "id":  "lit-cities",
+                      "title":  "A Tale of Two Cities",
+                      "authors":  [
+                                      "Charles Dickens"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL8193465W",
+                      "coverId":  13301713
+                  },
+                  {
+                      "id":  "lit-jane",
+                      "title":  "Jane Eyre",
+                      "authors":  [
+                                      "Charlotte Brontë"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL1095427W",
+                      "coverId":  8235363
+                  },
+                  {
+                      "id":  "lit-metamorphosis",
+                      "title":  "The Metamorphosis and Other Stories",
+                      "authors":  [
+                                      "Franz Kafka"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL15176533W",
+                      "coverId":  6889547
+                  },
+                  {
+                      "id":  "lit-pride",
+                      "title":  "Pride and Prejudice",
+                      "authors":  [
+                                      "Jane Austen"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL66554W",
+                      "coverId":  14348537
+                  },
+                  {
+                      "id":  "lit-rickshaw",
+                      "title":  "Rickshaw boy",
+                      "authors":  [
+                                      "She Lao"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL51427W",
+                      "coverId":  13498082
+                  },
+                  {
+                      "id":  "ln-haruhi",
+                      "title":  "涼宮ハルヒの憂鬱",
+                      "authors":  [
+                                      "Nagaru Tanigawa"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL13718081W",
+                      "coverId":  7363625
+                  },
+                  {
+                      "id":  "ln-kino",
+                      "title":  "Kino no Tabi  Volume 1",
+                      "authors":  [
+                                      "Keiichi Sigsawa"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL9000829W",
+                      "coverId":  878922
+                  },
+                  {
+                      "id":  "ln-konosuba",
+                      "title":  "この素晴らしい世界に祝福を! あぁ、駄女神さま (light novel)",
+                      "authors":  [
+                                      "暁なつめ"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL19349946W",
+                      "coverId":  8462271
+                  },
+                  {
+                      "id":  "ln-literary",
+                      "title":  "Book girl and the suicidal mime",
+                      "authors":  [
+                                      "Mizuki Nomura"
+                                  ],
+                      "work":  "https://openlibrary.org/books/OL24063093M",
+                      "coverId":  15086117
+                  },
+                  {
+                      "id":  "ln-rezero",
+                      "title":  "Re:Zero Starting Life in Another World, Volume 1",
+                      "authors":  [
+                                      "Tappei Nagatsuki"
+                                  ],
+                      "work":  "https://openlibrary.org/books/OL26961591M",
+                      "coverId":  15150647
+                  },
+                  {
+                      "id":  "ln-spice",
+                      "title":  "Spice and Wolf, Volume 1",
+                      "authors":  [
+                                      "Isuna Hasekura"
+                                  ],
+                      "work":  "https://openlibrary.org/books/OL26962634M",
+                      "coverId":  14841064
+                  },
+                  {
+                      "id":  "mystery-holmes",
+                      "title":  "The Adventures of Sherlock Holmes [12 stories]",
+                      "authors":  [
+                                      "Arthur Conan Doyle"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL262421W",
+                      "coverId":  6717853
+                  },
+                  {
+                      "id":  "mystery-moonstone",
+                      "title":  "The Moonstone",
+                      "authors":  [
+                                      "Wilkie Collins"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL176092W",
+                      "coverId":  8237041
+                  },
+                  {
+                      "id":  "mystery-none",
+                      "title":  "And Then There Were None",
+                      "authors":  [
+                                      "Agatha Christie"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL471565W",
+                      "coverId":  11172296
+                  },
+                  {
+                      "id":  "mystery-orient",
+                      "title":  "Murder on the Orient Express",
+                      "authors":  [
+                                      "Agatha Christie"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL471576W",
+                      "coverId":  11100465
+                  },
+                  {
+                      "id":  "mystery-roger",
+                      "title":  "The Murder of Roger Ackroyd",
+                      "authors":  [
+                                      "Agatha Christie"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL471932W",
+                      "coverId":  13151356
+                  },
+                  {
+                      "id":  "philo-analects",
+                      "title":  "The analects (Lun yu)",
+                      "authors":  [
+                                      "Confucius"
+                                  ],
+                      "work":  "https://openlibrary.org/books/OL4184134M",
+                      "coverId":  103902
+                  },
+                  {
+                      "id":  "philo-dao",
+                      "title":  "Tao te Ching",
+                      "authors":  [
+                                      "老子"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL45499W",
+                      "coverId":  662232
+                  },
+                  {
+                      "id":  "philo-meditations",
+                      "title":  "Meditations",
+                      "authors":  [
+                                      "Marcus Aurelius"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL1317211W",
+                      "coverId":  211529
+                  },
+                  {
+                      "id":  "philo-republic",
+                      "title":  "The Republic of Plato--Books I.-V.",
+                      "authors":  [
+                                      "Πλάτων"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL380265W",
+                      "coverId":  14377522
+                  },
+                  {
+                      "id":  "science-candle",
+                      "title":  "Course of six lectures on the chemical history of a candle",
+                      "authors":  [
+                                      "Michael Faraday",
+                                      "Crookes, William Sir"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL2008500W",
+                      "coverId":  313672
+                  },
+                  {
+                      "id":  "science-species",
+                      "title":  "On the origin of species by means of natural selection",
+                      "authors":  [
+                                      "Charles Darwin"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL515051W",
+                      "coverId":  7153600
+                  },
+                  {
+                      "id":  "science-time",
+                      "title":  "A Brief History of Time",
+                      "authors":  [
+                                      "Stephen Hawking"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL1892617W",
+                      "coverId":  10432365
+                  },
+                  {
+                      "id":  "science-voyage",
+                      "title":  "Charles Darwin\u0027s The Voyage of the Beagle:",
+                      "authors":  [
+                                      "Charles Darwin"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL515065W",
+                      "coverId":  12973721
+                  },
+                  {
+                      "id":  "sf-lightning",
+                      "title":  "球状闪电",
+                      "authors":  [
+                                      "刘慈欣"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL19622381W",
+                      "coverId":  8535954
+                  },
+                  {
+                      "id":  "sf-sea",
+                      "title":  "Twenty thousand leagues under the sea",
+                      "authors":  [
+                                      "Jules Verne"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL24304873W",
+                      "coverId":  10817535
+                  },
+                  {
+                      "id":  "sf-supernova",
+                      "title":  "Supernova Era",
+                      "authors":  [
+                                      "刘慈欣"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL26502955W",
+                      "coverId":  14759093
+                  },
+                  {
+                      "id":  "sf-threebody",
+                      "title":  "三体",
+                      "authors":  [
+                                      "刘慈欣"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL17267881W",
+                      "coverId":  9157544
+                  },
+                  {
+                      "id":  "sf-timemachine",
+                      "title":  "The Time Machine",
+                      "authors":  [
+                                      "H. G. Wells"
+                                  ],
+                      "work":  "https://openlibrary.org/works/OL52267W",
+                      "coverId":  9009316
+                  }
+              ],
+    "Count":  42
+}

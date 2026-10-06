@@ -1,0 +1,44 @@
+# Build / IDE
+**/bin/
+**/obj/
+artifacts/
+publish/
+.vs/
+.idea/
+*.user
+*.suo
+*.pdb
+*.exe
+*.dll
+*.zip
+*.bak
+*.lnk
+*.tmp
+*.log
+# Personal data and secrets
+.env
+.env.*
+!.env.example
+settings.json
+settings.*.json
+*credential*.json
+*secret*.json
+*.pfx
+*.p12
+*.key
+*.pem
+*.epub
+*.mobi
+*.azw
+*.azw3
+*.cbz
+*.cbr
+**/User Data/
+**/EBWebView/
+**/LibraryBrowser*/
+**/AmazonBrowser*/
+**/AmazonEdge*/
+**/ComicBrowser*/
+轻阅数据/
+书籍下载/
+Kindle 修复/

@@ -1,0 +1,13 @@
+name: 功能建议
+description: 提出轻阅功能或界面改进
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: 希望解决什么问题？
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 希望如何使用这个功能？

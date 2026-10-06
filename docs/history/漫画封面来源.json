@@ -1,0 +1,166 @@
+﻿[
+    {
+        "Id":  "comic:onepiece",
+        "CoverId":  1020563,
+        "BookUrl":  "https://openlibrary.org/works/OL8215661W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=One+Piece\u0026limit=20\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "ONE PIECE 1",
+        "Authors":  [
+                        "尾田栄一郎"
+                    ]
+    },
+    {
+        "Id":  "comic:naruto",
+        "CoverId":  7335243,
+        "BookUrl":  "https://openlibrary.org/works/OL13268171W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Naruto%22+author%3AKishimoto\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Naruto 33",
+        "Authors":  [
+                        "Masashi Kishimoto"
+                    ]
+    },
+    {
+        "Id":  "comic:spyfamily",
+        "CoverId":  10193955,
+        "BookUrl":  "https://openlibrary.org/works/OL20873142W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Spy+x+Family%22+author%3AEndo\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Spy x Family, Vol. 1",
+        "Authors":  [
+                        "Tatsuya Endo"
+                    ]
+    },
+    {
+        "Id":  "comic:frieren",
+        "CoverId":  11075074,
+        "BookUrl":  "https://openlibrary.org/works/OL24468510W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=Frieren\u0026limit=20\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "葬送のフリーレン 1",
+        "Authors":  [
+                        "山田鐘人",
+                        "アベツカサ"
+                    ]
+    },
+    {
+        "Id":  "comic:fullmetal",
+        "CoverId":  863658,
+        "BookUrl":  "https://openlibrary.org/works/OL8756258W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=Fullmetal+Alchemist\u0026limit=20\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "鋼の錬金術師 1",
+        "Authors":  [
+                        "荒川弘"
+                    ]
+    },
+    {
+        "Id":  "comic:deathnote",
+        "CoverId":  1041608,
+        "BookUrl":  "https://openlibrary.org/works/OL8756309W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Death+Note%22+author%3AOhba\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Death Note, Vol. 1",
+        "Authors":  [
+                        "Tsugumi Ohba",
+                        "Takeshi Obata"
+                    ]
+    },
+    {
+        "Id":  "comic:conan",
+        "CoverId":  1787458,
+        "BookUrl":  "https://openlibrary.org/works/OL8400841W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Case+Closed%22+author%3AAoyama\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "名探偵コナン 1",
+        "Authors":  [
+                        "青山 剛昌 [Gōshō Aoyama]"
+                    ]
+    },
+    {
+        "Id":  "comic:haikyu",
+        "CoverId":  12352164,
+        "BookUrl":  "https://openlibrary.org/works/OL26403256W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Haikyu%22+author%3AFurudate\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Haikyu!!",
+        "Authors":  [
+                        "Haruiçi Furudate"
+                    ]
+    },
+    {
+        "Id":  "comic:slamdunk",
+        "CoverId":  991930,
+        "BookUrl":  "https://openlibrary.org/works/OL8783725W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Slam+Dunk%22+author%3AInoue\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Slam Dunk, Vol. 1",
+        "Authors":  [
+                        "井上雄彦 (Takehiko Inoue)"
+                    ]
+    },
+    {
+        "Id":  "comic:bluelock",
+        "CoverId":  12552345,
+        "BookUrl":  "https://openlibrary.org/works/OL27042112W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Blue+Lock%22+author%3AKaneshiro\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Blue Lock 1",
+        "Authors":  [
+                        "Muneyuki Kaneshiro",
+                        "Yusuke Nomura"
+                    ]
+    },
+    {
+        "Id":  "comic:yotsuba",
+        "CoverId":  1044564,
+        "BookUrl":  "https://openlibrary.org/works/OL8752663W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=Yotsuba\u0026limit=20\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "よつばと! 1",
+        "Authors":  [
+                        "あずまきよひこ"
+                    ]
+    },
+    {
+        "Id":  "comic:kaguya",
+        "CoverId":  13481074,
+        "BookUrl":  "https://openlibrary.org/works/OL20566643W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=Kaguya-sama\u0026limit=20\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "かぐや様は告らせたい 〜天才たちの恋愛頭脳戦〜 1",
+        "Authors":  [
+                        "赤坂アカ"
+                    ]
+    },
+    {
+        "Id":  "comic:drstone",
+        "CoverId":  14577228,
+        "BookUrl":  "https://openlibrary.org/works/OL37805541W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Dr.+Stone%22+author%3AInagaki\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Dr. STONE, Vol. 1",
+        "Authors":  [
+                        "Riichiro Inagaki"
+                    ]
+    },
+    {
+        "Id":  "comic:titan",
+        "CoverId":  8471695,
+        "BookUrl":  "https://openlibrary.org/works/OL19357261W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Attack+on+Titan%22+author%3AIsayama\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "Attack on Titan 18",
+        "Authors":  [
+                        "諫山創",
+                        "Hajime Isayama"
+                    ]
+    },
+    {
+        "Id":  "comic:hunter",
+        "CoverId":  7289483,
+        "BookUrl":  "https://openlibrary.org/works/OL17047535W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=title%3A%22Hunter+x+Hunter%22+author%3ATogashi\u0026limit=6\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "hunter x hunter",
+        "Authors":  [
+                        "Yoshihiro Togashi"
+                    ]
+    },
+    {
+        "Id":  "comic:demonslayer",
+        "CoverId":  9364005,
+        "BookUrl":  "https://openlibrary.org/works/OL19751404W",
+        "CatalogQuery":  "https://openlibrary.org/search.json?q=Demon+Slayer\u0026limit=20\u0026fields=key%2Ctitle%2Cauthor_name%2Ccover_i%2Csubject",
+        "EditionTitle":  "鬼滅の刃 1",
+        "Authors":  [
+                        "Koyoharu Gotoge"
+                    ]
+    }
+]
