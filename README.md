@@ -10,6 +10,12 @@
 
 [![Windows build](https://github.com/mango1145141/qingyue/actions/workflows/windows.yml/badge.svg)](https://github.com/mango1145141/qingyue/actions/workflows/windows.yml)
 
+## 手机网页版
+
+[在 iPhone 打开轻阅](https://kindle-zftrvo.v2.appdeploy.ai/) · 手机版 1.3
+
+简洁首页，不含「为你推荐」；保留书籍／漫画搜索、EPUB 修复、邮箱／分享发送，书架、队列、想读各自独立。源码与边界详见 [手机项目说明](web/Qingyue.Mobile/README.md)。Safari 可添加到主屏幕。
+
 ## 下载和开始使用
 
 在本仓库的 **[Releases](https://github.com/mango1145141/qingyue/releases)** 页面下载 `qingyue-v版本号-win-x64.zip`，解压并运行 `轻阅.exe`。发行包包含 .NET 运行时；网页功能需要 Microsoft Edge WebView2 Runtime。
@@ -39,7 +45,7 @@
 - 邮件附件发送与网页大文件发送是不同流程；网页流程上限按当前实现为 200 MiB，实际接收限制以服务端为准。
 - EPUB 为自动处理格式；缺失的原始图片无法通过补登记恢复，WebP 当前不会自动转换。
 - 网站搜索、登录、验证码、下载额度与收件结果由对应网站决定。
-- 手机页面与同步服务由现有 AppDeploy 项目运行；本仓库包含桌面客户端，不包含手机后端部署源码。独立部署本仓库不会生成手机服务。
+- 手机页面与同步服务由现有 AppDeploy 项目运行；本仓库的 `web/Qingyue.Mobile` 包含手机前后端源码，运行依赖平台 SDK／数据库／环境授权。仅构建桌面项目不会生成手机服务。
 
 ## 源码构建
 
@@ -55,6 +61,7 @@ pwsh -File .\scripts\publish.ps1
 
 ```text
 src/Qingyue.Desktop/     桌面源码、XAML 和应用资源
+web/Qingyue.Mobile/     手机网页前端、平台后端与验收说明
 docs/                   用户说明、构建和更新指南
 docs/history/           原始版本说明和书目来源
 licenses/third-party/   依赖组件许可

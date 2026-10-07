@@ -1,0 +1,7 @@
+node_modules/
+dist/
+dist-local/
+.env
+.env.*
+deploy-files.json
+*.log
