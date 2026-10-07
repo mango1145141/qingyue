@@ -6,13 +6,13 @@
 
 轻阅是 Windows 桌面端的 EPUB 检查、修复与 Kindle 发送工具，采用蓝灰色极简界面、封面翻页与弹簧按钮动效。
 
-**当前版本：2.1.5 · Windows x64 · .NET 10 / WPF**
+**当前版本：2.1.6 · Windows x64 · .NET 10 / WPF**
 
 [![Windows build](https://github.com/mango1145141/qingyue/actions/workflows/windows.yml/badge.svg)](https://github.com/mango1145141/qingyue/actions/workflows/windows.yml)
 
 ## 手机网页版
 
-[在 iPhone 打开轻阅](https://kindle-zftrvo.v2.appdeploy.ai/) · 手机版 1.3
+[在 iPhone 打开轻阅](https://kindle-zftrvo.v2.appdeploy.ai/) · 手机版 1.4
 
 简洁首页，不含「为你推荐」；保留书籍／漫画搜索、EPUB 修复、邮箱／分享发送，书架、队列、想读各自独立。源码与边界详见 [手机项目说明](web/Qingyue.Mobile/README.md)。Safari 可添加到主屏幕。
 
@@ -36,6 +36,7 @@
 - 每批 12 本连续加载；封面悬停翻页显示作者与简介。
 - 我的书架、发送队列和想读清单采用独立入口及窗口；书架与队列位于首页导入区上方，想读清单位于推荐区。
 - EPUB 预览、记录管理、每日一句及界面偏好。
+- 书架固定保存在 `G:\chatgpt\轻阅\轻阅数据\书架`，兼容搬家前记录并修正已移动文件路径；原子保存和备份，重启后继续保留。
 - 通过现有轻阅手机服务配对同步邮箱地址和偏好。
 
 ## 运行条件和当前边界

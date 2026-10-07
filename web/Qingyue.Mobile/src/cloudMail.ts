@@ -11,6 +11,9 @@ type Connection = {
   chunkBytes: number;
   senderEmail: string;
   kindleEmail: string;
+  authorizationId?: string;
+  authorizationUrl?: string;
+  authorizationExpiresAt?: number;
 };
 export type Job = {
   jobId: string;

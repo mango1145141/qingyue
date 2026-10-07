@@ -67,6 +67,8 @@ public partial class MainWindow : Window
             else if (book.State is "待发送" && book.Report is not null) sendQueue.Enqueue(book);
         }
         UpdateQueueText();
+        if (!string.IsNullOrEmpty(bookshelf.LoadNotice))
+        { SettingsNotice.Text = bookshelf.LoadNotice; SettingsNotice.Visibility = Visibility.Visible; }
         queueTimer.Tick += async (_, _) => await RetryScheduledAsync();
         wishFeedbackTimer.Tick += async (_, _) => { wishFeedbackTimer.Stop(); await UiMotion.HideAsync(WishFeedbackToast); };
         Closed += (_, _) => wishFeedbackTimer.Stop();
@@ -860,9 +862,16 @@ public partial class MainWindow : Window
     }
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
-        if (libraryWindow?.HasActiveDownloads != true && comicWindow?.HasActiveWork != true && amazonWindow?.HasActiveWork != true) return;
-        var answer = MessageBox.Show(this, "仍有书籍正在下载或网页发送。退出会中断当前任务，发送结果可能需要确认。是否退出？", "任务尚未完成", MessageBoxButton.YesNo, MessageBoxImage.Information);
-        if (answer != MessageBoxResult.Yes) e.Cancel = true;
+        if (libraryWindow?.HasActiveDownloads == true || comicWindow?.HasActiveWork == true || amazonWindow?.HasActiveWork == true)
+        {
+            var answer = MessageBox.Show(this, "仍有书籍正在下载或网页发送。退出会中断当前任务，发送结果可能需要确认。是否退出？", "任务尚未完成", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (answer != MessageBoxResult.Yes) { e.Cancel = true; return; }
+        }
+        try { bookshelf.Save(); }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, "退出前书架未能保存，已保留原记录与备份：" + ex.Message, "书架保存提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
     }
 
     private void UpdateConnectionBadge()

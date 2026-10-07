@@ -112,7 +112,7 @@ public sealed class BookshelfWindow : Window
                 list.Items.Add(Row(image,book.Title,book.Author + " · " + book.Category + " · " + book.State,book.Detail,actions,view == 2 ? book.Progress : null));
             }
             var remaining = library.Books.Count(b => b.State is not ("邮件已提交" or "网页已提交" or "已跳过"));
-            hint.Text = view == 0 ? $"共 {library.Books.Count} 本 · 书架、封面和修复记录保存在 G:\\chatgpt\\轻阅数据\\书架"
+            hint.Text = view == 0 ? $"共 {library.Books.Count} 本 · 书架、封面和修复记录保存在 {PersonalLibrary.Folder}"
                 : $"{remaining} 本未完成 · 邮件连接失败最多自动重试 3 次；网页结果不确定时请先确认，可单本继续。暂停会在当前任务结束后生效。";
         }
         if (list.Items.Count == 0) list.Items.Add(new TextBlock { Text = view == 1 ? "还没有想读的书，去推荐区收藏一本吧。" : view == 2 ? "当前筛选下没有发送任务。" : "这里还没有书籍，选入 EPUB 后就会出现。", Margin = new Thickness(20), FontSize = 14 });

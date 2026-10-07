@@ -45,7 +45,7 @@ public static class EpubRepairer
         if (!string.Equals(Path.GetExtension(inputPath), ".epub", StringComparison.OrdinalIgnoreCase))
             throw new InvalidDataException("目前只支持 EPUB 电子书。请拖入 .epub 文件。");
 
-        var outputDirectory = Path.Combine(@"G:\chatgpt", "Kindle 修复");
+        var outputDirectory = Path.Combine(QingyueData.Root, "Kindle 修复");
         Directory.CreateDirectory(outputDirectory);
         var outputPath = ChooseOutputPath(outputDirectory, Path.GetFileNameWithoutExtension(inputPath));
         var tempPath = outputPath + ".tmp";

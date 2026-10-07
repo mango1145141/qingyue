@@ -7,7 +7,7 @@ namespace EpubKindleFix;
 public static class LibraryFiles
 {
     public const string DefaultWebsiteUrl = "https://zh.z-library.sk/";
-    public const string DownloadDirectory = @"G:\chatgpt\书籍下载";
+    public static string DownloadDirectory => Path.Combine(QingyueData.Root, "书籍下载");
 
     public static bool IsRetiredWebsite(Uri uri) => uri.Host.Equals("z-lib.ag", StringComparison.OrdinalIgnoreCase)
         || uri.Host.EndsWith(".z-lib.ag", StringComparison.OrdinalIgnoreCase);

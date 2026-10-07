@@ -2,7 +2,7 @@
 
 ## 唯一维护目录
 
-本机正式仓库为 `G:\chatgpt\qingyue`，后续在这里修改；历史 `轻阅-v*` 目录是版本归档。先检查 `git status` 和 `git remote -v`，存在未提交改动时先合并，不用新副本覆盖。
+本机正式仓库为 `G:\chatgpt\轻阅\qingyue`，后续在这里修改；历史 `轻阅-v*` 目录是版本归档。先检查 `git status` 和 `git remote -v`，存在未提交改动时先合并，不用新副本覆盖。
 
 ```powershell
 git fetch origin

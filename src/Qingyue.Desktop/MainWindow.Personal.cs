@@ -12,7 +12,11 @@ public partial class MainWindow
         {
             var details = await Task.Run(() => EpubPreview.Read(book.SourcePath, book.Id));
             book.Title = details.Title; book.Author = details.Author; book.CoverPath = details.CoverPath;
-            if (!closed) bookshelf.Save();
+            if (!closed)
+            {
+                try { bookshelf.Save(); }
+                catch (Exception ex) { SettingsNotice.Text = "书籍信息已读取，但书架未能保存：" + ex.Message; SettingsNotice.Visibility = Visibility.Visible; }
+            }
         }
         catch { /* Import remains available for repair even if optional metadata cannot be read. */ }
         finally { metadataTasks.Remove(book.Id); }

@@ -120,9 +120,49 @@ export default function SettingsPanel({
           </>
         )}
         {sync.connected && mail.connection && !mail.connection.configured && (
-          <p className="sync-note">
-            首次授权尚未完成，请先在安全授权页提交邮箱授权码，然后连接邮箱。
-          </p>
+          <div className="mail-authorization">
+            <p className="sync-note">
+              邮箱地址已同步，发信授权还需连接一次。按下面的步骤获取授权码，无需填写服务器参数。
+            </p>
+            {mail.connection.authorizationUrl &&
+            (mail.connection.authorizationExpiresAt || 0) > Date.now() ? (
+              <a
+                className="secondary full"
+                href={mail.connection.authorizationUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                打开安全授权页
+              </a>
+            ) : (
+              <>
+                <p className="sync-note">
+                  当前没有可用的安全授权链接。点击下方申请入口，附带当前邮箱的授权配置编号，由维护者生成专用安全页。请勿在留言或聊天中发送授权码。
+                </p>
+                <a
+                  className="secondary full"
+                  href={
+                    'https://github.com/mango1145141/qingyue/issues/new?title=' +
+                    encodeURIComponent('申请手机邮箱安全授权入口') +
+                    '&body=' +
+                    encodeURIComponent(
+                      '授权配置编号：' +
+                        (mail.connection.authorizationId ||
+                          '请先立即同步并重新打开设置') +
+                        '\n请为此配对生成安全授权页。此处不包含邮箱密码或授权码。',
+                    )
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  申请安全授权入口
+                </a>
+              </>
+            )}
+            <p className="sync-note">
+              安全页提交后，等待授权绑定，再点下方「连接发件邮箱」。修改发件邮箱后需重新授权。
+            </p>
+          </div>
         )}
         <button
           className="primary full"
@@ -141,6 +181,32 @@ export default function SettingsPanel({
               ? '重新连接发件邮箱'
               : '连接发件邮箱'}
         </button>
+        {mail.connection?.configured && !mail.connection.connected && (
+          <p className="sync-note">发信授权已绑定，点击连接即可使用。</p>
+        )}
+        <details className="mail-help">
+          <summary>如何获取邮箱授权码？</summary>
+          <p className="sync-note">
+            163 手机渠道：网易邮箱大师 → 我 → 邮箱管理 → 选择发件邮箱 →
+            第三方登录管理 → 通用授权码 → 新增授权码。
+          </p>
+          <p className="sync-note">
+            163 网页渠道：登录网易邮箱，打开设置 → POP3/SMTP/IMAP →
+            新增授权密码。授权码仅在生成时显示一次，用于允许轻阅发信。
+          </p>
+          <a
+            className="text-button"
+            href="https://email.163.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            打开网易邮箱官网 ↗
+          </a>
+          <p className="sync-note">
+            QQ / Foxmail 在邮箱设置中开启 IMAP/SMTP 并生成授权码；Gmail
+            使用应用专用密码。仅在轻阅的专用安全页提交，不能把邮箱登录密码填进去。
+          </p>
+        </details>
         {mail.connection?.connected && (
           <>
             <p className="sync-note">
