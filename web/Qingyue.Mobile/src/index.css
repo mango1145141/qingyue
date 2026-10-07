@@ -782,6 +782,7 @@ progress::-webkit-progress-value {
   bottom: 0;
 }
 .notice {
+  pointer-events: none;
   position: fixed;
   z-index: 45;
   left: 50%;
@@ -806,6 +807,7 @@ progress::-webkit-progress-value {
   line-height: 1.6;
 }
 .notice button {
+  pointer-events: auto;
   width: 36px;
   height: 36px;
   display: flex;
