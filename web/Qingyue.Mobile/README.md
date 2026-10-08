@@ -57,3 +57,7 @@ npx vite build --config vite.local.config.ts
 ### 安全入口维护
 
 维护者为当前配对的工作区与发件地址生成 AppDeploy 一次性授权页，再用受配对凭据保护的 `/api/mail/authorization-link` 注册入口元数据；授权值只能由安全页提交并通过 AppDeploy secrets 绑定。页面只向同一配对返回有效链接。无有效链接时显示申请渠道，不能由网页直接生成平台授权页。链接、私有配对凭据和授权值均不能写入仓库。
+
+## 独立访问入口（待部署）
+
+原地址在部分网络无法直连时，可以在自己的域名与服务器部署静态页面和限定接口网关，沿用现有同步及邮箱后端。构建命令：npm run build:standalone。部署说明见 [独立入口](deploy/standalone/README.md)。服务器、域名和国内线路实测尚待提供，不能称作已上线或国内直连已验证。桌面程序和原网站未替换。

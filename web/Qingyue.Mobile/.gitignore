@@ -5,3 +5,10 @@ dist-local/
 .env.*
 deploy-files.json
 *.log
+
+# Standalone hosting output
+dist-standalone/
+deploy/standalone/dist/
+
+# Public hostname template only
+!.env.example

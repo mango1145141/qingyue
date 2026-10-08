@@ -1,0 +1,55 @@
+{$DOMAIN} {
+    root * /srv
+    encode zstd gzip
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        -Server
+    }
+    @health {
+        method GET
+        path /healthz
+    }
+    handle @health {
+        header Content-Type application/json
+        respond `{"status":"ok"}` 200
+    }
+    @backend {
+        method POST
+        path_regexp api ^/api/(sync/(create|state|save|pair|claim|disconnect)|mail/(status|connect|disconnect|upload|chunk|job|send))$
+    }
+    handle @backend {
+        request_body {
+            max_size 1MB
+        }
+        header Cache-Control no-store
+        reverse_proxy https://api-v2.appdeploy.ai {
+            rewrite /app/kindle-zftrvo{uri}
+            header_up Host api-v2.appdeploy.ai
+            header_up -Origin
+            header_up -Referer
+            header_up -Cookie
+            header_up -Authorization
+            header_down -Set-Cookie
+            transport http {
+                dial_timeout 10s
+                response_header_timeout 70s
+            }
+        }
+    }
+    handle /api/* {
+        header Content-Type application/json
+        header Cache-Control no-store
+        respond `{"error":"服务入口不存在。"}` 404
+    }
+    @assets path /assets/*
+    handle @assets {
+        header Cache-Control "public, max-age=31536000, immutable"
+        file_server
+    }
+    handle {
+        header Cache-Control no-cache
+        try_files {path} /index.html
+        file_server
+    }
+}
